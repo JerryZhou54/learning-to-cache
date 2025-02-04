@@ -1,0 +1,12 @@
+torchrun --nnodes=1 --nproc_per_node=8 --master_port 12345 sample_ddp.py \
+	--model DiT-XL/2 \
+	--num-sampling-steps 100 \
+	--ddim-sample \
+	--accelerate-method dynamiclayer \
+	--path ckpt/DDIM20_router.pt \
+	--thres 0.1 \
+	--num-fid-samples 5000 \
+	--image-size 256 \
+	--per-proc-batch-size 32 \
+	--sample-dir samples/mod_5k_images \
+	--save-to-disk
